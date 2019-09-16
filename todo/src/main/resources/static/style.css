@@ -1,15 +1,22 @@
-#mycards{
-	padding-bottom:2%;
-
-	
+#mycards {
+	padding-bottom: 2%;
 }
+
 body {
 	background-color: #262928;
-	
-	}
-	
-	#jumboThing{
-	padding-top:2%;
+}
 
+#jumboThing {
+	padding-top: 2%;
+	margin-top: 2%;
+}
+#titanicImg{
+	width:75%;
+	height: auto;
 	
+}
+
+#logo{
+	width: 10%;
+	height: auto;
 }
