@@ -12,16 +12,15 @@ public class ShrekController {
 	public String home() {
 		return " characters in the movie Shrek ";
 	}
-	
+
 	@GetMapping("/shrek")
 	public String shrek() {
 		return "Shrek was played by Mike Myers";
 	}
-	
+
 	@GetMapping("donkey")
 	public String donkey() {
 		return "Donkey was played by Eddie Murphy";
 	}
-	
-	
+
 }
