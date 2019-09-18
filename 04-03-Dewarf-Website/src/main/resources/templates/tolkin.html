@@ -5,6 +5,7 @@
     <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
 	
+	<link rel="stylesheet"	href="../static/styles.css" th:href="@{../styles.css}"/>
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	
@@ -31,16 +32,36 @@
 </nav>
 <div class="jumbotron text-center">
 
-<h1>Home Page</h1>
+<h1>Tolkin Dewarfs</h1>
 <h2></h2>
 <br />
 
-</div>
+					<img src="img/SevenDwarfs.jpg" class="d-block w-100" alt="..."
+						width="60%" height=auto th:src="@{img/thorinscompany.jpg}">
+				
+			
+
+		<h2>There are</h2>
+		<h2 th:text="${numOfthorinDewarfs}"></h2>
+		<h2>dwarfs in Thorins company</h2>
+		<br />
 
 
-<div class="container">
+	</div>
 
-<p>This site will contain information about children's movies…
+
+	<div class="container">
+
+		<p>This site will contain information about the Tolkin Dwarves</p>
+
+		<div class="card" style="width: 18rem; " th:each= "dewarf: ${dewarfs}" id="cardspad" >
+			<img src="../static/img/dewarfImg/" class="card-img-top" alt="..."
+				th:src="@{img/dewarfImg/} + ${dewarf.image}" />
+			<div class="card-body">
+				<h2 class="card-text" th:text="${dewarf.name}">Some quick example text to build on the
+					card title and make up the bulk of the card's content.</h2>
+			</div>
+		</div>
 
 </div>
 
