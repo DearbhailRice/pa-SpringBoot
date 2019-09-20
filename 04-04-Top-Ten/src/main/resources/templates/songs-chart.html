@@ -37,103 +37,7 @@
 
 
 
-			<div class="jumbotron">
-				<h1 class="display-4">Top Ten Albums</h1>
-				<p class="lead">
-
-					<img src="" style="width: 100%;" th:src="@{img/ttAlbums.jpg}" />
-				</p>
-				<hr class="my-4">
-				<p>The current top ten debute Albums in the uk</p>
-
-			</div>
-
-			<div class="row">
-				<div class="col sm bg-light" id="contentBox" style="margin-bottom: 5%;">
-
-
-					<!--  vars names String artists, int yearProduced, int currentRanking, int
-		 prevRanking, String imagePath, String album,String trackList
-					 -->
-			<!-- <div class="row">
 			
-					<div class="card w-75" th:each="album : ${albums}" id = "albumCards" style= "margin-left: 500 px; ">
-						<div class="card-body">
-
-							<div class="row">
-								<div class="col- 2">
-									<h1 th:text="${album.currentRanking}"></h1>
-
-									// for future do method for moving rank which idicates up down or non mover from previous ranking 
-								</div>
-
-								<div class="col- 6">
-								
-									<div class=" col-sm 3 float-left">
-										<img src="../static/img/album/" class="card-img-top" alt="..."
-											th:src="@{img/album/} + ${album.imagePath}" style=float: left; />
-									</div>
-									<div class="col- 3 float-right">
-										<h2 th:text="${album.album}"></h2>
-									</div>
-
-
-								</div>
-
-								<div class="col- 4">
-									<a href=""></a>
-									<button type="button" class="btn btn-link">more</button>
-									</a>
-								</div>
-
-
-
-							</div>
-						</div>
-					</div>
-					
-			</div> -->
-					 <table class="table table-striped"  >
-						<thead >
-							<tr>
-								<th scope="col">Album</th>
-								<th scope="col">Current Rank</th>
-								<th scope="col">Previous Rank</th>
-								
-								<th scope="col">Artist</th>
-							</tr>
-						</thead>
-						<tbody th:each="album : ${albums}">
-							<tr>
-							<td>
-									<img src="../static/img/album/" class="card-img-top" alt="..."
-											th:src="@{img/album/} + ${album.imagePath}" style = max-width: 30vw; ;/>
-										
-											<h2 class="card-text" th:text="${album.album}"></h2>
-										
-									
-								</td>
-								<th scope="row" th:text="${album.currentRanking}"></th>
-								<td th:text="${album. prevRanking}"></td>
-								
-								<td th:text="${album.artists}">
-									</td>
-							</tr>
-
-						</tbody>
-					</table>
-
-
-
-
-
-
-
-				</div>
-
-			</div>
-		</div>
-		<!-- 
 				<div class="jumbotron">
 				<h1 class="display-4">Top Ten Songs</h1>
 				<p class="lead">
@@ -146,14 +50,55 @@
 				<a class="btn btn-primary btn-lg" href="songs" role="button">Songs</a>
 			</div>
 
- -->
+
+			<div class="row">
+				<div class="col sm bg-light" id="contentBox" style="margin-bottom: 5%;">
+			<!--  vars names String artists, int yearProduced, int currentRanking, int prevRanking, String imagePath, String album,
+			String songTitle
+					 -->
+					 <table class="table table-striped"  >
+						<thead >
+							<tr>
+								<th scope="col">Song</th>
+								<th scope="col">Current Rank</th>
+								<th scope="col">Previous Rank</th>
+								<th scope="col">Album</th>
+								<th scope="col">Artist</th>
+							</tr>
+						</thead>
+						<tbody th:each="song : ${songs}">
+							<tr>
+							<td>
+									<img src="../static/img/album/" class="card-img-top" alt="..."
+											th:src="@{img/song/} + ${song.imagePath}" style = max-width: 30vw; ;/>
+										
+											<h2 class="card-text" th:text="${song.songTitle}"></h2>
+										
+									
+								</td>
+								<th scope="row" th:text="${song.currentRanking}"></th>
+								<td th:text="${song. prevRanking}"></td>
+								<td th:text="${song.album}">
+								<td th:text="${song.artists}">
+									</td>
+							</tr>
+
+						</tbody>
+					</table>
+
+
+				</div>
+
+			</div>
+		</div>
+
 
 
 
 
 
 	</div>
-<!-- 	<nav class="navbar fixed-bottom navbar-dark bg-dark">
+	<!-- <nav class="navbar fixed-bottom navbar-dark bg-dark">
 		<a class="navbar-brand" href="/">Top Ten</a>
 	</nav> -->
 

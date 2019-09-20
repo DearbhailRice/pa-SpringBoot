@@ -61,4 +61,12 @@ public class Song extends Music {
 		this.songTitle = songTitle;
 	}
 
+	@Override
+	public String toString() {
+		return "Song [album=" + album + ", songTitle=" + songTitle + ", getArtists()=" + getArtists()
+				+ ", getYearProduced()=" + getYearProduced() + ", getCurrentRanking()=" + getCurrentRanking()
+				+ ", getPrevRanking()=" + getPrevRanking() + ", getImagePath()=" + getImagePath() + ", toString()="
+				+ super.toString() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
+	}
+
 }

@@ -108,4 +108,10 @@ public abstract class Music {
 		this.imagePath = imagePath;
 	}
 
+	@Override
+	public String toString() {
+		return "Music [artists=" + artists + ", yearProduced=" + yearProduced + ", currentRanking=" + currentRanking
+				+ ", prevRanking=" + prevRanking + ", imagePath=" + imagePath + "]";
+	}
+
 }

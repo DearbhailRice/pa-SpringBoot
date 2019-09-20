@@ -48,9 +48,9 @@ public class MusicService {
 		 * String artists, int yearProduced, int currentRanking, int prevRanking, String
 		 * imagePath, String album, String songTitle
 		 */
-		songs.add(new Song("artists", 2019, 1, 2, "imagePath", "album", "songTitle1"));
-		songs.add(new Song("artists", 2019, 1, 2, "imagePath", "album", "songTitle1"));
-		songs.add(new Song("artists", 2019, 1, 2, "imagePath", "album", "songTitle1"));
+		songs.add(new Song("artists1", 2019, 1, 3, "one.jpg", "1album", "songTitle1"));
+		songs.add(new Song("artists2", 2019, 2, 2, "two.png", "2album", "songTitle2"));
+		songs.add(new Song("artists3", 2019, 3, 1, "three.jpg", "3album", "songTitle3"));
 
 		return songs;
 	}

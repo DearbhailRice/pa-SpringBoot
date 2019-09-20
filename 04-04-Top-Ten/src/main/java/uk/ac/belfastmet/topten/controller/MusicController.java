@@ -48,6 +48,7 @@ public class MusicController {
 		log.info("ON ALBUMS PAGE ");
 
 		model.addAttribute("albums", musicService.getAlbums());
+		log.info(musicService.getAlbums().toString());
 		return "albums-chart";
 
 	}
@@ -62,6 +63,7 @@ public class MusicController {
 		MusicService musicService = new MusicService();
 		log.info("ON SONGS PAGE");
 		model.addAttribute("songs", musicService.getSongs());
+		log.info(musicService.getSongs().toString());
 		return "songs-chart";
 
 	}

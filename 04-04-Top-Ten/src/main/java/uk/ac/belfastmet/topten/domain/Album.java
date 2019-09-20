@@ -62,4 +62,12 @@ public class Album extends Music {
 		this.trackList = trackList;
 	}
 
+	@Override
+	public String toString() {
+		return "Album [album=" + album + ", trackList=" + trackList + ", getArtists()=" + getArtists()
+				+ ", getYearProduced()=" + getYearProduced() + ", getCurrentRanking()=" + getCurrentRanking()
+				+ ", getPrevRanking()=" + getPrevRanking() + ", getImagePath()=" + getImagePath() + ", toString()="
+				+ super.toString() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
+	}
+
 }
