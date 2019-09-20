@@ -9,6 +9,7 @@ package uk.ac.belfastmet.topten.domain;
  */
 public abstract class Music {
 
+	// instance vars
 	private String artists;
 	private int yearProduced;
 	private int currentRanking;

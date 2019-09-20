@@ -1,7 +1,13 @@
 package uk.ac.belfastmet.topten.domain;
 
+/**
+ * 
+ * @author ric19171870
+ *
+ */
 public class Song extends Music {
 
+	// instance vars
 	private String album;
 	private String songTitle;
 

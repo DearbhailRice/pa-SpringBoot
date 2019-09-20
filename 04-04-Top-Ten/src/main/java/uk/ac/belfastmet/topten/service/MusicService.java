@@ -21,9 +21,12 @@ public class MusicService {
 
 		this.albums = new ArrayList<Album>();
 
-		albums.add(new Album("artists", 2019, 1, 2, "imagePath", "album1", "trackList,trackList,trackList"));
-		albums.add(new Album("artists", 2019, 1, 2, "imagePath", "album2", "trackList,trackList,trackList"));
-		albums.add(new Album("artists", 2019, 1, 2, "imagePath", "album3", "trackList,trackList,trackList"));
+		// constructor order String artists, int yearProduced, int currentRanking, int
+		// prevRanking, String imagePath, String album,String trackList
+
+		albums.add(new Album("artists1", 2019, 1, 3, "one.jpg", "album1", "1trackList,trackList,trackList"));
+		albums.add(new Album("artists2", 2019, 2, 2, "two.png", "album2", "2trackList,trackList,trackList"));
+		albums.add(new Album("artists3", 2019, 3, 1, "three.jpg", "album3", "3trackList,trackList,trackList"));
 		return albums;
 
 	}
