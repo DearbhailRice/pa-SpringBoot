@@ -17,6 +17,11 @@ public class MusicService {
 	private ArrayList<Album> albums;
 	private ArrayList<Song> songs;
 
+	/**
+	 * method to create albums and assign to albums array list
+	 * 
+	 * @return
+	 */
 	public ArrayList<Album> getAlbums() {
 
 		this.albums = new ArrayList<Album>();
@@ -31,6 +36,11 @@ public class MusicService {
 
 	}
 
+	/**
+	 * method to creatre songs and assign to songs array list
+	 * 
+	 * @return
+	 */
 	public ArrayList<Song> getSongs() {
 		this.songs = new ArrayList<Song>();
 

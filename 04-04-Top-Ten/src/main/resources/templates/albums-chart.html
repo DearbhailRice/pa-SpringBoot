@@ -53,8 +53,47 @@
 
 
 					<!--  vars names String artists, int yearProduced, int currentRanking, int
-		 prevRanking, String imagePath, String album,String trackList -->
-					<table class="table" th:each="album : ${albums}">
+		 prevRanking, String imagePath, String album,String trackList
+					 -->
+			<div class="row">
+			<div class= "col- 2"></div>
+					<div class="card w-75" th:each="album : ${albums}">
+						<div class="card-body">
+
+							<div class="row">
+								<div class="col- 2">
+									<h1 th:text="${album.currentRanking}"></h1>
+
+									<!-- // for future do method for moving rank which idicates up down or non mover from previous ranking  -->
+								</div>
+
+								<div class="col- 6">
+								
+									<div class=" col-sm 3 float-left">
+										<img src="../static/img/album/" class="card-img-top" alt="..."
+											th:src="@{img/album/} + ${album.imagePath}" style=float: left; />
+									</div>
+									<div class="col- 3 float-right">
+										<h2 th:text="${album.album}"></h2>
+									</div>
+
+
+								</div>
+
+								<div class="col- 4">
+									<a href=""></a>
+									<button type="button" class="btn btn-link">more</button>
+									</a>
+								</div>
+
+
+
+							</div>
+						</div>
+					</div>
+					
+			</div>
+					<!--  <table class="table" th:each="album : ${albums}">
 						<thead>
 							<tr>
 								<th scope="col">Current Rank</th>
@@ -83,7 +122,7 @@
 					</table>
 
 
-
+ -->
 
 
 
@@ -91,7 +130,8 @@
 				</div>
 
 			</div>
-			<!-- 
+		</div>
+		<!-- 
 				<div class="jumbotron">
 				<h1 class="display-4">Top Ten Songs</h1>
 				<p class="lead">
@@ -110,25 +150,25 @@
 
 
 
-		</div>
-		<nav class="navbar fixed-bottom navbar-dark bg-dark">
-			<a class="navbar-brand" href="/">Top Ten</a>
-		</nav>
+	</div>
+	<nav class="navbar fixed-bottom navbar-dark bg-dark">
+		<a class="navbar-brand" href="/">Top Ten</a>
+	</nav>
 
 
 
-		<!-- Optional JavaScript -->
-		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-			crossorigin="anonymous"></script>
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-			crossorigin="anonymous"></script>
-		<script
-			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-			crossorigin="anonymous"></script>
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
 </body>
 </html>

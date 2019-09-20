@@ -31,7 +31,7 @@ public class MusicController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getHome(Model model) {
-		log.info("An INFO message");
+		log.info("ON Index PAGE");
 
 		return "index";
 
@@ -45,8 +45,8 @@ public class MusicController {
 	@RequestMapping(value = "/albums-chart", method = RequestMethod.GET)
 	public String getAlbumChart(Model model) {
 		MusicService musicService = new MusicService();
-		log.info("An INFO message");
-		model.addAttribute("albums", musicService.getAlbums());
+		log.info("ON ALBUMS PAGE ");
+
 		model.addAttribute("albums", musicService.getAlbums());
 		return "albums-chart";
 
@@ -60,7 +60,7 @@ public class MusicController {
 	@RequestMapping(value = "/songs-chart", method = RequestMethod.GET)
 	public String getSongChart(Model model) {
 		MusicService musicService = new MusicService();
-		log.info("An INFO message");
+		log.info("ON SONGS PAGE");
 		model.addAttribute("songs", musicService.getSongs());
 		return "songs-chart";
 
