@@ -3,6 +3,8 @@
  */
 package uk.ac.belfastmet.tasks.domain;
 
+import java.util.Date;
+
 /**
  * 
  * @author Ric19171870
@@ -20,7 +22,7 @@ public class Task {
 
 	private String priority;
 
-	private String completionDate;
+	private Date completionDate;
 
 	private boolean completed;
 	
@@ -44,7 +46,7 @@ public class Task {
 	 * @param completionDate
 	 * @param completed
 	 */
-	public Task(String userName, String taskName, String description, String priority, String completionDate,
+	public Task(String userName, String taskName, String description, String priority, Date completionDate,
 			boolean completed) {
 
 		this.userName = userName;
@@ -114,14 +116,14 @@ public class Task {
 	/**
 	 * @return the completionDate
 	 */
-	public String getCompletionDate() {
+	public Date getCompletionDate() {
 		return completionDate;
 	}
 
 	/**
 	 * @param completionDate the completionDate to set
 	 */
-	public void setCompletionDate(String completionDate) {
+	public void setCompletionDate(Date completionDate) {
 
 		this.completionDate = completionDate;
 
