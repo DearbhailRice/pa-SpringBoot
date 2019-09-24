@@ -5,14 +5,24 @@ package uk.ac.belfastmet.tasks.domain;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * 
  * @author Ric19171870
  *
  */
+@Entity
+@Table(name = "task")
 public class Task {
 
 	// instance vars
+	private long id;
 
 	private String userName;
 
@@ -25,7 +35,6 @@ public class Task {
 	private Date completionDate;
 
 	private boolean completed;
-	
 
 	// constructor
 
@@ -34,6 +43,21 @@ public class Task {
 	 */
 	public Task() {
 
+	}
+
+	/**
+	 * constructor with 4 string args
+	 * 
+	 * @param userName
+	 * @param taskName
+	 * @param description
+	 * @param priority
+	 */
+	public Task(String userName, String taskName, String description, String priority) {
+		this.userName = userName;
+		this.taskName = taskName;
+		this.description = description;
+		this.priority = priority;
 	}
 
 	/**
@@ -56,24 +80,44 @@ public class Task {
 		this.completionDate = completionDate;
 		this.completed = completed;
 	}
+	/**
+	 * 
+	 * @return id
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public long getId() {
+		return id;
+	}
+
+	/**
+	 * 
+	 * @param id
+	 */
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	/**
 	 * @return the userName
 	 */
+	@Column(name="user_name")
 	public String getUserName() {
+		
 		return userName;
 	}
 
 	/**
 	 * @param userName the userName to set
 	 */
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserName(String user_name) {
+		this.userName = user_name;
 	}
 
 	/**
 	 * @return the taskName
 	 */
+	@Column(name="task_name")
 	public String getTaskName() {
 		return taskName;
 	}
@@ -88,6 +132,7 @@ public class Task {
 	/**
 	 * @return the description
 	 */
+	@Column(name="description")
 	public String getDescription() {
 		return description;
 	}
@@ -102,6 +147,7 @@ public class Task {
 	/**
 	 * @return the priority
 	 */
+	@Column(name="priority")
 	public String getPriority() {
 		return priority;
 	}
@@ -148,10 +194,8 @@ public class Task {
 	 */
 	@Override
 	public String toString() {
-		return "Tasks [userName=" + userName + ", taskName=" + taskName + ", description=" + description + ", priority="
-				+ priority + ", completionDate=" + completionDate + ", completed=" + completed + "]";
+		return "Tasks [userName=" + userName + ", taskName=" + taskName + ", description=" + description
+				+ ", priority=" + priority + ", completionDate=" + completionDate + ", completed=" + completed + "]";
 	}
-
-	
 
 }

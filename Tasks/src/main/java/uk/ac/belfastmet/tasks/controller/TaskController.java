@@ -6,10 +6,11 @@ package uk.ac.belfastmet.tasks.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import uk.ac.belfastmet.tasks.service.TasksServices;
 
 /**
@@ -18,8 +19,12 @@ import uk.ac.belfastmet.tasks.service.TasksServices;
  */
 @Controller
 @RequestMapping
+@Service
 public class TaskController {
-
+	
+	@Autowired
+	private TasksServices tasksServices;
+	
 	Logger log = LoggerFactory.getLogger(TaskController.class);
 
 	/**
@@ -31,7 +36,10 @@ public class TaskController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getHome(Model model) {
 		log.info("ON HOME PAGE");
-
+		
+		tasksServices.getNumberoftasks();
+		
+		
 		return "index";
 
 	}
@@ -45,11 +53,11 @@ public class TaskController {
 	public String getToDoList(Model model) {
 		log.info("ON TO DO LIST PAGE");
 
-		TasksServices taskServices = new TasksServices();
+		//TasksServices taskServices = new TasksServices();
 
-		model.addAttribute("tasks", taskServices.getTasks());
+		//model.addAttribute("tasks", tasksServices.getTasks());
 
-		log.info("populated task array" + taskServices.getTasks().toString());
+		//log.info("populated task array" + tasksServices.getTasks().toString());
 		return "toDoList";
 
 	}
@@ -77,9 +85,9 @@ public class TaskController {
 	public String getcompletedTasks(Model model) {
 		log.info("ON COMPLETED TASKS");
 
-		TasksServices taskServices = new TasksServices();
+		//TasksServices taskServices = new TasksServices();
 
-		model.addAttribute("tasks", taskServices.getTasks());
+	//	model.addAttribute("tasks", tasksServices.getTasks());
 		return "completedTasks";
 
 	}
@@ -93,9 +101,10 @@ public class TaskController {
 	@RequestMapping(value = "/incompleteTasks", method = RequestMethod.GET)
 	public String getincompleteTasks(Model model) {
 		log.info("ON inCOMPLETETASKS");
-		TasksServices taskServices = new TasksServices();
+		
+		//TasksServices taskServices = new TasksServices();
 
-		model.addAttribute("tasks", taskServices.getTasks());
+		//model.addAttribute("tasks", tasksServices.getTasks());
 		return "incompleteTasks";
 
 	}
