@@ -28,6 +28,7 @@ public class TasksServices {
 	
 	
 
+	
 	@Autowired
 	private TasksRepository tasksRepository;
 	
@@ -38,25 +39,38 @@ public class TasksServices {
 	 * 
 	 *//**
 		 * method to populate task array calls setDate()
+	 * @return 
 		 * 
 		 * @return tasks array
-		 *//*
-			 * public ArrayList<Task> getTasks() { log.info("instantiating java array ");
-			 * this.tasks = new ArrayList<Task>();
-			 * 
-			 * 
-			 * Task constructor order Task(String userName, String taskName, String
-			 * description, String priority, String completionDate, boolean completed)
-			 * 
-			 * 
-			 * this.tasks.add(new Task("user name", "task name", "description", "priority",
-			 * setDate(23, 9, 2019), false)); this.tasks.add(new Task("user name2",
-			 * "task Name2", "description2", "priority2", setDate(23, 9, 2019), true));
-			 * 
-			 * log.info(" tasks array populated ");
-			 * 
-			 * return tasks; }
-			 */
+		 */
+			  public  Iterable<Task> getTasks() {
+				  
+				  log.info("instantiating java array ");
+		/*
+		 * this.tasks = new ArrayList<Task>();
+		 * 
+		 * 
+		 * Task constructor order Task(String userName, String taskName, String
+		 * description, String priority, String completionDate, boolean completed)
+		 * 
+		 * 
+		 * this.tasks.add(new Task("user name", "task name", "description", "priority",
+		 * setDate(23, 9, 2019), false)); this.tasks.add(new Task("user name2",
+		 * "task Name2", "description2", "priority2", setDate(23, 9, 2019), true));
+		 * 
+		 * log.info(" tasks array populated ");
+		 */
+			  
+				Iterable<Task> tasks = tasksRepository.findAll();
+				Iterator <Task> iterator = tasks.iterator();
+				while (iterator.hasNext()) {
+					
+					log.info("{}", iterator.next().toString());
+				}
+
+			  return tasks;
+			  }
+			 
 
 	/**
 	 * method to set date format
@@ -64,7 +78,7 @@ public class TasksServices {
 	 * @param day
 	 * @param month
 	 * @param year
-	 * @return
+	 * @return date 
 	 */
 	@SuppressWarnings("deprecation")
 	public Date setDate(int day, int month, int year) {
@@ -86,14 +100,6 @@ public class TasksServices {
 
 		log.info(tasksRepository.toString());
 		log.info("# number of tasks {}", tasksRepository.count());
-		
-		Iterable<Task> tasks = tasksRepository.findAll();
-		Iterator <Task> iterator = tasks.iterator();
-		while (iterator.hasNext()) {
-			log.info("{}", iterator.next().toString());
-		}
-		
-		
 
 	}
 

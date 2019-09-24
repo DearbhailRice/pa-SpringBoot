@@ -47,7 +47,7 @@ public class TaskController {
 	/**
 	 * method to direct to to do list html page calls get tasks() from task services
 	 * 
-	 * @return
+	 * @return toDoList html page 
 	 */
 	@RequestMapping(value = "/toDoList", method = RequestMethod.GET)
 	public String getToDoList(Model model) {
@@ -55,7 +55,7 @@ public class TaskController {
 
 		//TasksServices taskServices = new TasksServices();
 
-		//model.addAttribute("tasks", tasksServices.getTasks());
+		model.addAttribute("tasks", tasksServices.getTasks());
 
 		//log.info("populated task array" + tasksServices.getTasks().toString());
 		return "toDoList";
@@ -65,7 +65,7 @@ public class TaskController {
 	/**
 	 * method for login page
 	 * 
-	 * @return
+	 * @return login html page 
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String getLogin() {
@@ -79,7 +79,7 @@ public class TaskController {
 	 * method for completed tasks page
 	 * 
 	 * @param model
-	 * @return
+	 * @return completedTasks html page 
 	 */
 	@RequestMapping(value = "/completedTasks", method = RequestMethod.GET)
 	public String getcompletedTasks(Model model) {
@@ -87,7 +87,7 @@ public class TaskController {
 
 		//TasksServices taskServices = new TasksServices();
 
-	//	model.addAttribute("tasks", tasksServices.getTasks());
+	model.addAttribute("tasks", tasksServices.getTasks());
 		return "completedTasks";
 
 	}
@@ -96,7 +96,7 @@ public class TaskController {
 	 * method for mapping to incomplete tasks page
 	 * 
 	 * @param model
-	 * @return
+	 * @return incompletedTasks html page 
 	 */
 	@RequestMapping(value = "/incompleteTasks", method = RequestMethod.GET)
 	public String getincompleteTasks(Model model) {
@@ -104,7 +104,7 @@ public class TaskController {
 		
 		//TasksServices taskServices = new TasksServices();
 
-		//model.addAttribute("tasks", tasksServices.getTasks());
+		model.addAttribute("tasks", tasksServices.getTasks());
 		return "incompleteTasks";
 
 	}
