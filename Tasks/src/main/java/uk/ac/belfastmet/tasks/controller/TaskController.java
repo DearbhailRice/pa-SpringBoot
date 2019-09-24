@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.example.tasks.controller;
+package uk.ac.belfastmet.tasks.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,9 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.example.tasks.service.TasksServices;
-
-//import com.example.tasks.domain.Task;
+import uk.ac.belfastmet.tasks.service.TasksServices;
 
 /**
  * @author Ric19171870
@@ -50,14 +48,15 @@ public class TaskController {
 		TasksServices taskServices = new TasksServices();
 
 		model.addAttribute("tasks", taskServices.getTasks());
-		
-		log.info(taskServices.getTasks().toString());
+
+		log.info("populated task array" + taskServices.getTasks().toString());
 		return "toDoList";
 
 	}
 
 	/**
 	 * method for login page
+	 * 
 	 * @return
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -69,7 +68,8 @@ public class TaskController {
 	}
 
 	/**
-	 * method for completed tasks page 
+	 * method for completed tasks page
+	 * 
 	 * @param model
 	 * @return
 	 */
@@ -78,16 +78,15 @@ public class TaskController {
 		log.info("ON COMPLETED TASKS");
 
 		TasksServices taskServices = new TasksServices();
-		
-		
-	
+
 		model.addAttribute("tasks", taskServices.getTasks());
 		return "completedTasks";
 
 	}
 
 	/**
-	 * method for mapping to incomplete tasks page 
+	 * method for mapping to incomplete tasks page
+	 * 
 	 * @param model
 	 * @return
 	 */

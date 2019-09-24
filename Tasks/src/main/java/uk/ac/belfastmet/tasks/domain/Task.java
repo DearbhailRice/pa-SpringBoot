@@ -1,10 +1,7 @@
 /**
  * 
  */
-package com.example.tasks.domain;
-
-
-
+package uk.ac.belfastmet.tasks.domain;
 
 /**
  * 
@@ -13,34 +10,33 @@ package com.example.tasks.domain;
  */
 public class Task {
 
-	//instance vars
-	
-	
+	// instance vars
+
 	private String userName;
-	
+
 	private String taskName;
-	
+
 	private String description;
-	
-	private String  priority; 
-		
+
+	private String priority;
+
 	private String completionDate;
-	
+
 	private boolean completed;
 	
-	
-	//constructor 
-	
+
+	// constructor
+
 	/**
 	 * default constructor
 	 */
 	public Task() {
-		
+
 	}
 
-
 	/**
-	 * constructor with all args 
+	 * constructor with all args
+	 * 
 	 * @param userName
 	 * @param taskName
 	 * @param description
@@ -50,7 +46,7 @@ public class Task {
 	 */
 	public Task(String userName, String taskName, String description, String priority, String completionDate,
 			boolean completed) {
-		
+
 		this.userName = userName;
 		this.taskName = taskName;
 		this.description = description;
@@ -59,14 +55,12 @@ public class Task {
 		this.completed = completed;
 	}
 
-
 	/**
 	 * @return the userName
 	 */
 	public String getUserName() {
 		return userName;
 	}
-
 
 	/**
 	 * @param userName the userName to set
@@ -75,14 +69,12 @@ public class Task {
 		this.userName = userName;
 	}
 
-
 	/**
 	 * @return the taskName
 	 */
 	public String getTaskName() {
 		return taskName;
 	}
-
 
 	/**
 	 * @param taskName the taskName to set
@@ -91,14 +83,12 @@ public class Task {
 		this.taskName = taskName;
 	}
 
-
 	/**
 	 * @return the description
 	 */
 	public String getDescription() {
 		return description;
 	}
-
 
 	/**
 	 * @param description the description to set
@@ -107,14 +97,12 @@ public class Task {
 		this.description = description;
 	}
 
-
 	/**
 	 * @return the priority
 	 */
 	public String getPriority() {
 		return priority;
 	}
-
 
 	/**
 	 * @param priority the priority to set
@@ -123,7 +111,6 @@ public class Task {
 		this.priority = priority;
 	}
 
-
 	/**
 	 * @return the completionDate
 	 */
@@ -131,17 +118,14 @@ public class Task {
 		return completionDate;
 	}
 
-
 	/**
 	 * @param completionDate the completionDate to set
 	 */
 	public void setCompletionDate(String completionDate) {
-			
-			this.completionDate = completionDate;
-		
-		
-	}
 
+		this.completionDate = completionDate;
+
+	}
 
 	/**
 	 * @return the completed
@@ -150,7 +134,6 @@ public class Task {
 		return completed;
 	}
 
-
 	/**
 	 * @param completed the completed to set
 	 */
@@ -158,16 +141,15 @@ public class Task {
 		this.completed = completed;
 	}
 
-
+	/**
+	 * To string method
+	 */
 	@Override
 	public String toString() {
 		return "Tasks [userName=" + userName + ", taskName=" + taskName + ", description=" + description + ", priority="
 				+ priority + ", completionDate=" + completionDate + ", completed=" + completed + "]";
 	}
+
 	
-	
-	
-	
-	
-	
+
 }

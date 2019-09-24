@@ -1,4 +1,4 @@
-package com.example.demo;
+package uk.ac.belfastmet.demo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
