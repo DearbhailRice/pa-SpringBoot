@@ -1,11 +1,25 @@
 package uk.ac.belfastmet.dewarfs.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+/**
+ * 
+ * @author ric19171870
+ *
+ */
+@Entity
+@Table(name ="dewarf_people")
 public class Dewarf {
 	
 	private String name;
 	private String author;
 	private String image;
-	
+	private long dewarfId;
 	//constructors 
 	/**
 	 * default constructor 
@@ -32,6 +46,7 @@ public class Dewarf {
 	/**
 	 * @return the name
 	 */
+	@Column (name= "name")
 	public String getName() {
 		return name;
 	}
@@ -48,6 +63,7 @@ public class Dewarf {
 	/**
 	 * @return the author
 	 */
+	@Column(name="author")
 	public String getAuthor() {
 		return author;
 	}
@@ -64,6 +80,7 @@ public class Dewarf {
 	/**
 	 * @return the image
 	 */
+	@Column(name = "image_path")
 	public String getImage() {
 		return image;
 	}
@@ -75,6 +92,24 @@ public class Dewarf {
 	public void setImage(String image) {
 		this.image = image;
 	}
+	
+	/**
+	 * @return the dewarfId
+	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="id_dewarf_people")
+	public long getDewarfId() {
+		return dewarfId;
+	}
+
+
+	/**
+	 * @param dewarfId the dewarfId to set
+	 */
+	public void setDewarfId(long dewarfId) {
+		this.dewarfId = dewarfId;
+	}
 
 	/**
 	 * to string method
@@ -83,6 +118,9 @@ public class Dewarf {
 	public String toString() {
 		return "Dewarf [name=" + name + ", author=" + author + ", image=" + image + "]";
 	}
+
+
+
 	
 	
 	

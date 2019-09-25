@@ -110,8 +110,8 @@ public class Task {
 	/**
 	 * @param userName the userName to set
 	 */
-	public void setUserName(String user_name) {
-		this.userName = user_name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	/**
