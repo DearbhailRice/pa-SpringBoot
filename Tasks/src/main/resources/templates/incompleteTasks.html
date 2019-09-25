@@ -19,7 +19,7 @@
 
 	<!-- Nav bar  -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-info text-white">
-		<a class="navbar-brand" href="/">Navbar</a>
+		<a class="navbar-brand" href="/">Home</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarNav" aria-controls="navbarNav"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -52,67 +52,76 @@
 					id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false">Filter</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					<a class="dropdown-item" href="/toDoList">All</a>
-					 <a class="dropdown-item" href="/completedTasks">Completed</a> <a
+					<a class="dropdown-item" href="/toDoList">All</a> <a
+						class="dropdown-item" href="/completedTasks">Completed</a> <a
 						class="dropdown-item" href="/incompleteTasks">Incomplete</a>
 				</div>
 			</div>
 		</div>
 
+
+		<!-- card displaying all incomplete tasks from database useing a thyme leaf if statement  -->
 		<!--  variable names for task array	/*
 		 * Task constructor 
 		 * Task(String userName, String taskName, String description, String priority, String completionDate,
 			boolean completed) 
 		 */ -->
+		<div class="row">
+			<div class="col"></div>
 
-		<div class="card" th:each=" task : ${tasks}" style="width: 18rem; margin: 3%;">
-			<div th:if="${task.completed == false} ">
-				<div class="card-body">
-					<h5 class="card-title" th:text="${task.taskName}"></h5>
-					<p class="card-text" th:text="|Description: ${task.description}|"></p>
+			<div class="col">
+				<div class="card" th:each=" task : ${tasks}"
+					style="width: 18rem; margin: 3%;">
+					<div th:if="${task.completed == false} ">
+						<div class="card-body">
+							<h5 class="card-title" th:text="${task.taskName}"></h5>
+							<p class="card-text" th:text="|Description: ${task.description}|"></p>
+						</div>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item" th:text="|User: ${task.userName}|">
+							</li>
+							<li class="list-group-item"
+								th:text="|Priority: ${task.priority}|"></li>
+							<li class="list-group-item"
+								th:text="|Target Completion Date: ${task.completionDate}|"></li>
+							<li class="list-group-item"
+								th:text="|Completed: ${task.completed}|"></li>
+						</ul>
+						<div class="card-body" th:if="${task.completed == false}">
+							<a href="#" class="btn btn-primary" onclick="myFunction()"
+								id="completedButton">Mark as Done</a>
+						</div>
+					</div>
 				</div>
-				<ul class="list-group list-group-flush">
-					<li class="list-group-item" th:text="|User: ${task.userName}|">
-					</li>
-					<li class="list-group-item" th:text="|Priority: ${task.priority}|"></li>
-					<li class="list-group-item"
-						th:text="|Target Completion Date: ${task.completionDate}|"></li>
-					<li class="list-group-item"
-						th:text="|Completed: ${task.completed}|"></li>
-				</ul>
-				<div class="card-body">
-					<a href="#" class="btn btn-primary" onclick="myFunction()"
-						id="completedButton">Mark as Done</a>
-				</div>
+
 			</div>
+
+			<div class="col"></div>
+			
 		</div>
+		<!-- Container ends -->
 
 
+		<!-- Bootstrap Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
 
-	</div>
-	<!-- Container ends -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"></script>
 
-
-	<!-- Bootstrap Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
-
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
-
-	<script>
-		function myFunction() {
-			document.getElementById("completedButton");
-		}
-		</body>
-		</html>
+		<script>
+			function myFunction() {
+				document.getElementById("completedButton");
+			}
+			</body>
+			</html>
+		

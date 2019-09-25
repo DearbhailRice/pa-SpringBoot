@@ -21,10 +21,10 @@ import uk.ac.belfastmet.tasks.service.TasksServices;
 @RequestMapping
 @Service
 public class TaskController {
-	
+
 	@Autowired
 	private TasksServices tasksServices;
-	
+
 	Logger log = LoggerFactory.getLogger(TaskController.class);
 
 	/**
@@ -36,10 +36,9 @@ public class TaskController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getHome(Model model) {
 		log.info("ON HOME PAGE");
-		
+
 		tasksServices.getNumberoftasks();
-		
-		
+
 		return "index";
 
 	}
@@ -47,17 +46,18 @@ public class TaskController {
 	/**
 	 * method to direct to to do list html page calls get tasks() from task services
 	 * 
-	 * @return toDoList html page 
+	 * @return toDoList html page
 	 */
 	@RequestMapping(value = "/toDoList", method = RequestMethod.GET)
 	public String getToDoList(Model model) {
 		log.info("ON TO DO LIST PAGE");
 
-		//TasksServices taskServices = new TasksServices();
+		// TasksServices taskServices = new TasksServices();
 
 		model.addAttribute("tasks", tasksServices.getTasks());
+		// model.addAttribute("bgColour", tasksServices.colourPriority())
 
-		//log.info("populated task array" + tasksServices.getTasks().toString());
+		// log.info("populated task array" + tasksServices.getTasks().toString());
 		return "toDoList";
 
 	}
@@ -65,7 +65,7 @@ public class TaskController {
 	/**
 	 * method for login page
 	 * 
-	 * @return login html page 
+	 * @return login html page
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String getLogin() {
@@ -79,15 +79,16 @@ public class TaskController {
 	 * method for completed tasks page
 	 * 
 	 * @param model
-	 * @return completedTasks html page 
+	 * @return completedTasks html page
 	 */
 	@RequestMapping(value = "/completedTasks", method = RequestMethod.GET)
 	public String getcompletedTasks(Model model) {
 		log.info("ON COMPLETED TASKS");
 
-		//TasksServices taskServices = new TasksServices();
+		// TasksServices taskServices = new TasksServices();
 
-	model.addAttribute("tasks", tasksServices.getTasks());
+		model.addAttribute("tasks", tasksServices.getTasks());
+		model.addAttribute("TaskCompleted", "bg-success text-dark");
 		return "completedTasks";
 
 	}
@@ -96,17 +97,35 @@ public class TaskController {
 	 * method for mapping to incomplete tasks page
 	 * 
 	 * @param model
-	 * @return incompletedTasks html page 
+	 * @return incompletedTasks html page
 	 */
 	@RequestMapping(value = "/incompleteTasks", method = RequestMethod.GET)
 	public String getincompleteTasks(Model model) {
-		log.info("ON inCOMPLETETASKS");
-		
-		//TasksServices taskServices = new TasksServices();
+		log.info("ON INCOMPLETE TASKS");
+
+		// TasksServices taskServices = new TasksServices();
 
 		model.addAttribute("tasks", tasksServices.getTasks());
 		return "incompleteTasks";
 
+	}
+
+	/**
+	 * method to change background colour of cards according to set priority
+	 */
+	public String colourPriority(String priority) {
+		String bgColour = null;
+
+		if (priority.equalsIgnoreCase("high")) {
+			bgColour = "bg-danger";
+		} else if (priority.equalsIgnoreCase("medium")) {
+			bgColour = "bg-warning";
+		} else if (priority.equalsIgnoreCase("low")) {
+			bgColour = "bg-success";
+		} else {
+			bgColour = "bg-light";
+		}
+		return bgColour;
 	}
 
 }

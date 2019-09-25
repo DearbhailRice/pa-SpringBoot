@@ -19,7 +19,7 @@
 
 	<!-- Nav bar  -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-info text-white">
-		<a class="navbar-brand" href="/">Navbar</a>
+		<a class="navbar-brand" href="/">Home</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarNav" aria-controls="navbarNav"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -43,52 +43,61 @@
 	<!-- Container -->
 	<div class="container">
 
-
-		<div class="jumbotron text-white bg-dark" style="margin-top: 5%">
-			<h1 class="display-4">To Do List</h1>
-			<p class="lead"></p>
-			<div class="dropdown">
-				<button class="btn btn-secondary dropdown-toggle" type="button"
-					id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false">Filter</button>
-				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					<a class="dropdown-item" href="/toDoList">All</a>
-					 <a class="dropdown-item" href="/completedTasks">Completed</a> <a
-						class="dropdown-item" href="/incompleteTasks">Incomplete</a>
+		
+			<div class="jumbotron text-white bg-dark" style="margin-top: 5%">
+				<h1 class="display-4">To Do List</h1>
+				<p class="lead"></p>
+				<div class="dropdown">
+					<button class="btn btn-secondary dropdown-toggle" type="button"
+						id="dropdownMenuButton" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">Filter</button>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" href="/toDoList">All</a> <a
+							class="dropdown-item" href="/completedTasks">Completed</a> <a
+							class="dropdown-item" href="/incompleteTasks">Incomplete</a>
+					</div>
 				</div>
 			</div>
-		</div>
+		
 
+		<!-- card display for tasks takes values from database -->
 		<!--  variable names for task array	/*
 		 * Task constructor 
 		 * Task(String userName, String taskName, String description, String priority, String completionDate,
 			boolean completed) 
 		 */ -->
+		<div class="row">
+		<div class= "col"> </div>
+		
+		<div class= "col">
+			<div class="card" th:each=" task : ${tasks}"
+				th:class="|card  ${TaskCompleted}|"
+				style="width: 18rem; margin: 3%;">
+				<div class="card-body">
+					<h5 class="card-title" th:text="${task.taskName}"></h5>
+					<p class="card-text" th:text="|Description: ${task.description}|"></p>
+				</div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item" th:text="|User: ${task.userName}|">
+					</li>
+					<li class="list-group-item" th:text="|Priority: ${task.priority}|"></li>
+					<li class="list-group-item"
+						th:text="|Target Completion Date: ${task.completionDate}|"></li>
+					<li class="list-group-item"
+						th:text="|Completed: ${task.completed}|"
+						th:if="${task.completed == true} ">Target</li>
 
-		<div class="card" th:each=" task : ${tasks}"
-			style="width: 18rem; margin: 3%;">
-
-			<div class="card-body">
-				<h5 class="card-title" th:text="${task.taskName}"></h5>
-				<p class="card-text" th:text="|Description: ${task.description}|"></p>
+				</ul>
+				<div class="card-body" th:if="${task.completed == false} ">
+					<a href="#" class="btn btn-primary" onclick="myFunction()"
+						id="completedButton">Mark as Done</a>
+				</div>
 			</div>
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item" th:text="|User: ${task.userName}|">
-				</li>
-				<li class="list-group-item" th:text="|Priority: ${task.priority}|"></li>
-				<li class="list-group-item"
-					th:text="|Target Completion Date: ${task.completionDate}|"></li>
-				<li class="list-group-item" th:text="|Completed: ${task.completed}|"
-					th:if="${task.completed == true} ">Target</li>
 
-			</ul>
-			<div class="card-body">
-				<a href="#" class="btn btn-primary" onclick="myFunction()"
-					id="completedButton">Mark as Done</a>
-			</div>
 		</div>
-
-
+		<div class="col"></div>
+		</div>
+		
 
 
 

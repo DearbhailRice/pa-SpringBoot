@@ -25,60 +25,85 @@ import uk.ac.belfastmet.tasks.repository.TasksRepository;
 public class TasksServices {
 
 	Logger log = LoggerFactory.getLogger(TaskController.class);
+	// ArrayList<Task> tasksArray = new ArrayList <Task>();
 	
-	
-
 	
 	@Autowired
 	private TasksRepository tasksRepository;
-	
-	
+
 	/*
-	 * // ArrayList containing all tasks from getTasks() private ArrayList<Task>
-	 * tasks;
+	 * commented out but retained for learning // ArrayList containing all tasks
+	 * from getTasks() private ArrayList<Task> tasks;
 	 * 
 	 *//**
 		 * method to populate task array calls setDate()
-	 * @return 
+		 * 
+		 * @return
 		 * 
 		 * @return tasks array
 		 */
-			  public  Iterable<Task> getTasks() {
-				  
-				  log.info("instantiating java array ");
-		/*
-		 * this.tasks = new ArrayList<Task>();
-		 * 
-		 * 
-		 * Task constructor order Task(String userName, String taskName, String
-		 * description, String priority, String completionDate, boolean completed)
-		 * 
-		 * 
-		 * this.tasks.add(new Task("user name", "task name", "description", "priority",
-		 * setDate(23, 9, 2019), false)); this.tasks.add(new Task("user name2",
-		 * "task Name2", "description2", "priority2", setDate(23, 9, 2019), true));
-		 * 
-		 * log.info(" tasks array populated ");
-		 */
+
+	/*
+	 * this.tasks = new ArrayList<Task>();
+	 * 
+	 * 
+	 * Task constructor order Task(String userName, String taskName, String
+	 * description, String priority, String completionDate, boolean completed)
+	 * 
+	 * 
+	 * this.tasks.add(new Task("user name", "task name", "description", "priority",
+	 * setDate(23, 9, 2019), false)); this.tasks.add(new Task("user name2",
+	 * "task Name2", "description2", "priority2", setDate(23, 9, 2019), true));
+	 * 
+	 * log.info(" tasks array populated ");
+	 */
+
+	/**
+	 * 
+	 * @return tasksiterablke
+	 */
+	public Iterable<Task> getTasks() {
+
+
+		log.info("looping through the database  ");
+		// iterator to loop through data from tasks database
+		Iterable<Task> tasks = tasksRepository.findAll();
+		Iterator<Task> iterator = tasks.iterator();
+		
+		
+		  while (iterator.hasNext()) {
 			  
-				Iterable<Task> tasks = tasksRepository.findAll();
-				Iterator <Task> iterator = tasks.iterator();
-				while (iterator.hasNext()) {
-					
-					log.info("{}", iterator.next().toString());
-				}
+			  //tasksArray.add(iterator.next());
+		  log.info("{}", iterator.next().toString()); log.info("one row "); }
+		  
+		log.info("returns ",tasks.toString());
+		
+		return tasks;
 
-			  return tasks;
-			  }
-			 
+	}
+	
+	public void iteratorTasksToArry() {
+		
+	}
 
+	/**
+	 * method to get the number of tasks from the mysql database
+	 */
+	public void getNumberoftasks() {
+
+		log.info(tasksRepository.toString());
+		log.info("# number of tasks {}", tasksRepository.count());
+
+	}
+
+	// null method from pre database connection retained as will update
 	/**
 	 * method to set date format
 	 * 
 	 * @param day
 	 * @param month
 	 * @param year
-	 * @return date 
+	 * @return date
 	 */
 	@SuppressWarnings("deprecation")
 	public Date setDate(int day, int month, int year) {
@@ -90,17 +115,7 @@ public class TasksServices {
 
 		return date;// completionDate;
 	}
-
 	
-
-	/**
-	 * method to get the number of tasks from the mysql database
-	 */
-	public void getNumberoftasks() {
-
-		log.info(tasksRepository.toString());
-		log.info("# number of tasks {}", tasksRepository.count());
-
-	}
+	
 
 }

@@ -11,6 +11,6 @@ import uk.ac.belfastmet.topten.domain.Tasks;
  * @author ric19171870
  *
  */
-public interface TasksRepositry CrudRepository {
+public interface TasksRepositry extends CrudRepository {
 
 }
