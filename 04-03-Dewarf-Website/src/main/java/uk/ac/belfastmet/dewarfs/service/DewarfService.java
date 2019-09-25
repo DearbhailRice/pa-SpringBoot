@@ -4,10 +4,16 @@
 package uk.ac.belfastmet.dewarfs.service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import uk.ac.belfastmet.dewarfs.controller.DewarfController;
 import uk.ac.belfastmet.dewarfs.domain.Dewarf;
+import uk.ac.belfastmet.dewarfs.repository.DewarfRepository;
 
 /**
  * @author ric19171870
@@ -17,32 +23,48 @@ import uk.ac.belfastmet.dewarfs.domain.Dewarf;
 @Service
 public class DewarfService {
 
-	private ArrayList<Dewarf> disneyDewarfs;
+	Logger log = LoggerFactory.getLogger(DewarfController.class);
 	private ArrayList<Dewarf> tolkinDewarfs;
 
-	/**
-	 * class to create disney dewarfs and assign them to the disney dewarf arraylist
-	 * 
-	 * @return
-	 */
-	public ArrayList<Dewarf> getDisneyDewarfs() {
-		this.disneyDewarfs = new ArrayList<Dewarf>();
+	@Autowired
+	public DewarfRepository dwarfRepo;
 
-		this.disneyDewarfs.add(new Dewarf("Sleepy", "Disney", "Sleepy.png"));
-		this.disneyDewarfs.add(new Dewarf("Dopey", "Disney", "Dopey.png"));
-		this.disneyDewarfs.add(new Dewarf("Happy", "Disney", "Happy.png"));
-		this.disneyDewarfs.add(new Dewarf("Bashful", "Disney", "Bashful.png"));
-		this.disneyDewarfs.add(new Dewarf("Grumpy", "Disney", "Grumpy.png"));
-		this.disneyDewarfs.add(new Dewarf("Doc", "Disney", "Doc.png"));
-		this.disneyDewarfs.add(new Dewarf("Sneezy", "Disney", "Sneezy.png"));
-		return this.disneyDewarfs;
+	// old method from pre databse connection
+//	/**
+//	 * class to create disney dewarfs and assign them to the disney dewarf arraylist
+//	 * 
+//	 * @return
+//	 */
+//	public ArrayList<Dewarf> getDisneyDewarfs() {
+//		this.disneyDewarfs = new ArrayList<Dewarf>();
+//
+//		this.disneyDewarfs.add(new Dewarf("Sleepy", "Disney", "Sleepy.png"));
+//		this.disneyDewarfs.add(new Dewarf("Dopey", "Disney", "Dopey.png"));
+//		this.disneyDewarfs.add(new Dewarf("Happy", "Disney", "Happy.png"));
+//		this.disneyDewarfs.add(new Dewarf("Bashful", "Disney", "Bashful.png"));
+//		this.disneyDewarfs.add(new Dewarf("Grumpy", "Disney", "Grumpy.png"));
+//		this.disneyDewarfs.add(new Dewarf("Doc", "Disney", "Doc.png"));
+//		this.disneyDewarfs.add(new Dewarf("Sneezy", "Disney", "Sneezy.png"));
+//		return this.disneyDewarfs;
+//
+//	}
 
+	public Iterable<Dewarf> getDisneyDewarfs() {
+		log.info("entering get disney dwarf method");
+		Iterable<Dewarf> dwarfs = dwarfRepo.findAll();
+		Iterator<Dewarf> iterator = dwarfs.iterator();
+
+		while (iterator.hasNext()) {
+			log.info(iterator.next().toString());
+		}
+
+		return dwarfs;
 	}
 
 	/**
 	 * class to create tolkin dewarfs and assign them to the tolkin dewarf arraylist
 	 * 
-	 * @return
+	 * @return array of tolkin dwarfs
 	 */
 	public ArrayList<Dewarf> getTolkinDewarfs() {
 		this.tolkinDewarfs = new ArrayList<Dewarf>();

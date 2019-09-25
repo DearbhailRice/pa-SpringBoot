@@ -16,10 +16,13 @@ import javax.persistence.Table;
 @Table(name ="dewarf_people")
 public class Dewarf {
 	
+	//instance vars 
 	private String name;
 	private String author;
 	private String image;
 	private long dewarfId;
+	
+	
 	//constructors 
 	/**
 	 * default constructor 
@@ -97,8 +100,9 @@ public class Dewarf {
 	 * @return the dewarfId
 	 */
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id_dewarf_people")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	
 	public long getDewarfId() {
 		return dewarfId;
 	}

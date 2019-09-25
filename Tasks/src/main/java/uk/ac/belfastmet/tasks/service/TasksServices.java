@@ -74,7 +74,8 @@ public class TasksServices {
 		  while (iterator.hasNext()) {
 			  
 			  //tasksArray.add(iterator.next());
-		  log.info("{}", iterator.next().toString()); log.info("one row "); }
+		  log.info("{}", iterator.next().toString()); 
+		  log.info("one row "); }
 		  
 		log.info("returns ",tasks.toString());
 		
