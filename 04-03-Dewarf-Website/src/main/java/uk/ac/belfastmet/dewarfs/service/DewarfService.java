@@ -1,6 +1,3 @@
-/**
- * 
- */
 package uk.ac.belfastmet.dewarfs.service;
 
 import java.util.ArrayList;
@@ -16,6 +13,7 @@ import uk.ac.belfastmet.dewarfs.domain.Dewarf;
 import uk.ac.belfastmet.dewarfs.repository.DewarfRepository;
 
 /**
+ * class to assign dewarfs to arrays 
  * @author ric19171870
  *
  */
@@ -29,7 +27,7 @@ public class DewarfService {
 	@Autowired
 	public DewarfRepository dwarfRepo;
 
-	// old method from pre databse connection
+	// old method from pre databse connection retained for learning
 //	/**
 //	 * class to create disney dewarfs and assign them to the disney dewarf arraylist
 //	 * 
@@ -49,6 +47,10 @@ public class DewarfService {
 //
 //	}
 
+	/**
+	 * method to assign dwarfs from database to array
+	 * @return dewarfs iterable array 
+	 */
 	public Iterable<Dewarf> getDisneyDewarfs() {
 		log.info("entering get disney dwarf method");
 		Iterable<Dewarf> dwarfs = dwarfRepo.findAll();

@@ -5,23 +5,19 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
-	
-	<link rel="stylesheet"	href="../static/styles.css" th:href="@{../styles.css}"/>
-	
 
-<!-- jQuery library -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../static/styles.css"
+	th:href="@{../styles.css}" />
 
-<!-- Latest compiled JavaScript -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-<!-- Custom Styles  -->
+
+
 
 <title th:text="${pageTitle}">Disney Dewarfs</title>
 </head>
 
 <body>
+
+	<!-- Nav bar start  -->
 	<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
 		<ul class="navbar-nav">
 			<li class="nav-item active"><a class="nav-link" href="/">Home</a>
@@ -32,15 +28,19 @@
 			</li>
 		</ul>
 	</nav>
+
+	<!-- Nav bar end  -->
+
+	<!-- ful width Display for top  of page indicates on Disney dewarf page  -->
 	<div class="jumbotron text-center">
 
 		<h1>Disney Dewarfs</h1>
 
-		
-					<img src="img/SevenDwarfs.jpg" class="d-block w-100" alt="..."
-						width="60%" height=auto th:src="@{img/SevenDwarfs.jpg}">
-				
-			
+
+		<img src="img/SevenDwarfs.jpg" class="d-block w-100" alt="..."
+			width="60%" height=auto th:src="@{img/SevenDwarfs.jpg}">
+
+
 
 		<h2>There are</h2>
 		<h2 th:text="${numOfDewarfs}"></h2>
@@ -55,12 +55,14 @@
 
 		<p>This site will contain information about Disney dewarfs</p>
 
-		<div class="card" style="width: 18rem; " th:each= "dewarf: ${dewarfs}" id="cardspad" >
+		<div class="card" style="width: 18rem;" th:each="dewarf: ${dewarfs}"
+			id="cardspad">
 			<img src="../static/img/dewarfImg/" class="card-img-top" alt="..."
 				th:src="@{img/dewarfImg/} + ${dewarf.image}" />
 			<div class="card-body">
-				<h2 class="card-text" th:text="${dewarf.name}">Some quick example text to build on the
-					card title and make up the bulk of the card's content.</h2>
+				<h2 class="card-text" th:text="${dewarf.name}">Some quick
+					example text to build on the card title and make up the bulk of the
+					card's content.</h2>
 			</div>
 		</div>
 
@@ -86,6 +88,15 @@
 
 
 	</div>
+	<!--  container ends  -->
 
+	<!-- jQuery library -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+	<!-- Custom Styles  -->
 </body>
 </html>

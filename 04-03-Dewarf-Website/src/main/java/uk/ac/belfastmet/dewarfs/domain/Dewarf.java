@@ -7,8 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+// Javadoc should have info about the class
+
 /**
- * 
+ * class to blueprint dwarfs 
  * @author ric19171870
  *
  */
